@@ -1,0 +1,2 @@
+<view class="container">我是个人中心</view>
+<view>{{message}}</view>

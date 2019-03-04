@@ -1,0 +1,16 @@
+.gongneng {
+  padding: 30rpx 20rpx 40rpx;
+  display: flex;
+}
+.gongneng .gongneng-xiang {
+  flex: 1;
+  margin: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+}
+.gongneng .gongneng-xiang image {
+  display: block;
+  margin: 0 auto 15rpx auto;
+  width: 75rpx;
+  height: 75rpx;
+}

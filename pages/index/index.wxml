@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view wx:if="{{isHide}}">
+    <view wx:if="{{canIUse}}" >
+        <view class='header'>
+            <image src='/images/wx_login.png'></image>
+        </view>
+ 
+        <!-- <view class='content'>
+            <view>申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view> -->
+ 
+        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+    </view>
+    <view wx:else>请升级微信版本</view>
+</view>
+
+<view wx:else>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class=''>
+    <swiper-item>1</swiper-item>
+    <swiper-item>2</swiper-item>
+    <swiper-item>3</swiper-item>
+  </swiper>
+
+  <view class="gongneng">
+    <span class="gongneng-xiang">
+      <image src="../../assets/kecheng_logo.png" class="gongneng-xiang"></image>
+      <view>课程</view>
+    </span>
+    <span class="gongneng-xiang">
+      <image src="../../assets/toutiao_logo.png" class="gongneng-xiang"></image>
+      <view>头条视讯</view>
+    </span>
+    <span class="gongneng-xiang">
+      <image src="../../assets/wenjuan_logo.png" class="gongneng-xiang"></image>
+      <view>调查问卷</view>
+    </span>
+  </view>
+  <view wx:for="{{flowClassify}}" wx:key="key">{{item.name}}</view>
+</view>
+
