@@ -1,325 +1,98 @@
-//index.js
-const app = getApp()
+// pages/test/test.js
+import fly from '../../http/config.js'
+const regeneratorRuntime = require('../../lib/runtime')
 
-import wxappStore from "../../lib/Store.js";
+var app = getApp();
 
-Page(wxappStore.createPage({
-  // 第一个参数和原来传入Page方法的option没有区别。其中的data会作为全局共享对象来使用。
+Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    message: '',    
+    name: app.globalData.name,
+    password: '',
+    phoneNumber: '',
+    idNumber: '',
+    province: '',
+    area: '',
+    city: '',
+    address: '',
+    curriculum: 0,
+    learnedTime: 0,
+    medicalBeans: 0,
   },
-  onLoad: function () {
-    // 通过dispatch方法，进行一个异步操作。 
-    console.log(this.store)
+  onLoad: function() {
+    this.getPersonMessage()
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+  },
+  async getPersonMessage() {
+    let resData = await fly.get("/api/getPersonMessage", )
+
+    app.globalData.name = resData.name
+    app.globalData.phoneNumber = resData.phoneNumber;
+    app.globalData.idNumber = resData.idNumber;
+    app.globalData.password = resData.password;
+    app.globalData.province = resData.province;
+    app.globalData.area = resData.area;
+    app.globalData.city = resData.city;
+    app.globalData.address = resData.address;
+    app.globalData.curriculum = resData.curriculum
+    app.globalData.learnedTime = resData.learnedTime
+    app.globalData.medicalBeans = resData.medicalBeans
+
+    this.setData({
+      name: app.globalData.name,
+      phoneNumber: app.globalData.phoneNumber,
+      idNumber: app.globalData.idNumber,
+      curriculum: app.globalData.curriculum,
+      learnedTime: app.globalData.learnedTime,
+      medicalBeans: app.globalData.medicalBeans
+    })
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
   }
-},
-  // 第二个参数是一个对象，其中包含mutations和actions
-  {
-    mutations: {
-      testMutation: function ({ setData, payload, data }) {
-        setData({
-          message: payload
-        });
-      },
-      getPersonMessage: function ({ setData, payload, data }) {
-
-        setData({
-          name: payload
-        });
-        console.log(setData)
-        console.log(payload)
-        console.log(data)
-      },
-    },
-    actions: {
-      testAction: function ({ commit, payload, data }) {
-        setTimeout(() => {
-          commit({
-            name: 'testMutation',
-            payload: payload
-          });
-        });
-      },
-      getPersonMessage: function ({ commit, payload, data }) {
-        commit({
-          name: 'getPersonMessage',
-          name: payload
-        });
-      },
-    }
-  }))
-
-
-// Page(wxappStore.createPage({
-//   // 第一个参数和原来传入Page方法的option没有区别。其中的data会作为全局共享对象来使用。
-//   data: {
-//     message: '',
-//     name: '',
-//     password: '',
-//     phoneNumber: '',
-//     idNumber: '',
-//     province: '',
-//     area: '',
-//     city: '',
-//     address: '',
-//     curriculum: 0,
-//     learnedTime: 0,
-//     medicalBeans: 0,
-//     classify: [],
-//     flowClassify: []
-//   },
-//   onLoad: function () {
-//     // 通过dispatch方法，进行一个异步操作。  
-//     this.store.dispatch({
-//       name: 'testAction',
-//       payload: 'hello world'
-//     });
-//     // 通过commit方法，修改全局状态。
-//     this.store.commit({
-//       name: 'getClassifyData',
-//       payload: '爸爸'
-//     });
-//     thid.store.commit({
-//       name: 'getPersonMessage',
-//       payload: '爸爸'
-//     })
-//   }
-// },
-//   // 第二个参数是一个对象，其中包含mutations和actions
-//   {
-//     mutations: {
-//       testMutation: function ({ setData, payload, data }) {
-//         setData({
-//           message: payload
-//         });
-//       },
-//       // getClassifyData: function ({ setData, payload, data }) {
-//       //   console.log(setData, payload, data)
-//       //   setData({
-//       //     classify: payload
-//       //   });
-//       // },
-//       // getPersonMessage: function ({ setData, payload, data }) {
-//       //   console.log(setData, payload, data)
-//       //   setData({
-//       //     name: payload
-//       //   });
-//       // },
-//       // getFlowClassifyData: async ({ setData, payload, data }) => {
-//       //   console.log(setData, payload, data)
-//       //   setData({
-//       //     flowClassify: payload
-//       //   });
-//       // }
-//     },
-//     actions: {
-//       testAction: function ({ commit, payload, data }) {
-//         setTimeout(() => {
-//           commit({
-//             name: 'testMutation',
-//             payload: payload
-//           });
-//         });
-//       },
-//       // getPersonMessage: function ({ commit, payload, data }) {
-//       //   commit({
-//       //     name: 'getPersonMessage',
-//       //     name: payload
-//       //   });
-//       // },
-//       // getClassifyAct: function ({ commit, payload, data }) {        
-//       //   commit({
-//       //     name: 'getClassifyData',
-//       //     classify: payload
-//       //   });
-//       // }
-//     }
-//   }))
-
-// Page({
-//   data: {
-//     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
-//     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-//     isHide: false,
-//     indicatorDots: true,
-//     indicatorColor: '#ccc',
-//     duration: 1000,
-//     interval: 3000,
-//     circular: true
-//   },
-
-//   changeName: function() {
-//     this.setData({
-//       name: 'mima'
-//     })
-//   },
-
-//   onLoad: function() {
-//     var that = this;
-//     // 查看是否授权
-//     wx.getSetting({
-//       success: function(res) {
-//         if (res.authSetting['scope.userInfo']) {
-//           wx.getUserInfo({
-//             success: function(res) {
-//               // 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
-//               // 根据自己的需求有其他操作再补充
-//               // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
-//               wx.login({
-//                 success: res => {
-//                   // 获取到用户的 code 之后：res.code
-//                   console.log("用户的code:" + res.code);
-//                   wx.setStorage({
-//                     key: 'key',
-//                     data: 'value'
-//                   })
-//                   // 可以传给后台，再经过解析获取用户的 openid
-//                   // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
-//                   // wx.request({
-//                   //     // 自行补上自己的 APPID 和 SECRET
-//                   //     url: 'https://api.weixin.qq.com/sns/jscode2session?appid=自己的APPID&secret=自己的SECRET&js_code=' + res.code + '&grant_type=authorization_code',
-//                   //     success: res => {
-//                   //         // 获取到用户的 openid
-//                   //         console.log("用户的openid:" + res.data.openid);
-//                   //     }
-//                   // });
-//                 }
-//               });
-//             }
-//           });
-//         } else {
-//           // 用户没有授权
-//           // 改变 isHide 的值，显示授权页面
-//           that.setData({
-//             isHide: true
-//           });
-//         }
-//       }
-//     });
-
-//     // 获取用户信息
-//     // wx.getSetting({
-//     //   success: res => {
-//     //     if (res.authSetting['scope.userInfo']) {
-//     //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-//     //       wx.getUserInfo({
-//     //         success: res => {
-//     //           this.setData({
-//     //             avatarUrl: res.userInfo.avatarUrl,
-//     //             userInfo: res.userInfo
-//     //           })
-//     //         }
-//     //       })
-//     //     }
-//     //   }
-//     // })
-//   },
-//   bindGetUserInfo: function(e) {
-//     if (e.detail.userInfo) {
-//       //用户按了允许授权按钮
-//       var that = this;
-//       // 获取到用户的信息了，打印到控制台上看下
-//       console.log("用户的信息如下：");
-//       console.log(e.detail.userInfo);
-//       //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
-//       that.setData({
-//         isHide: false
-//       });
-//     } else {
-//       //用户按了拒绝按钮
-//       wx.showModal({
-//         title: '警告',
-//         content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
-//         showCancel: false,
-//         confirmText: '返回授权',
-//         success: function(res) {
-//           // 用户没有授权成功，不需要改变 isHide 的值
-//           if (res.confirm) {
-//             console.log('用户点击了“返回授权”');
-//           }
-//         }
-//       });
-//     }
-//   },
-//   onGetUserInfo: function(e) {
-//     if (!this.logged && e.detail.userInfo) {
-//       this.setData({
-//         logged: true,
-//         avatarUrl: e.detail.userInfo.avatarUrl,
-//         userInfo: e.detail.userInfo
-//       })
-//     }
-//   },
-
-//   onGetOpenid: function() {
-//     // 调用云函数
-//     wx.cloud.callFunction({
-//       name: 'login',
-//       data: {},
-//       success: res => {
-//         console.log('[云函数] [login] user openid: ', res.result.openid)
-//         app.globalData.openid = res.result.openid
-//         wx.navigateTo({
-//           url: '../userConsole/userConsole',
-//         })
-//       },
-//       fail: err => {
-//         console.error('[云函数] [login] 调用失败', err)
-//         wx.navigateTo({
-//           url: '../deployFunctions/deployFunctions',
-//         })
-//       }
-//     })
-//   },
-
-//   // 上传图片
-//   doUpload: function() {
-//     // 选择图片
-//     wx.chooseImage({
-//       count: 1,
-//       sizeType: ['compressed'],
-//       sourceType: ['album', 'camera'],
-//       success: function(res) {
-
-//         wx.showLoading({
-//           title: '上传中',
-//         })
-
-//         const filePath = res.tempFilePaths[0]
-
-//         // 上传图片
-//         const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
-//         wx.cloud.uploadFile({
-//           cloudPath,
-//           filePath,
-//           success: res => {
-//             console.log('[上传文件] 成功：', res)
-
-//             app.globalData.fileID = res.fileID
-//             app.globalData.cloudPath = cloudPath
-//             app.globalData.imagePath = filePath
-
-//             wx.navigateTo({
-//               url: '../storageConsole/storageConsole'
-//             })
-//           },
-//           fail: e => {
-//             console.error('[上传文件] 失败：', e)
-//             wx.showToast({
-//               icon: 'none',
-//               title: '上传失败',
-//             })
-//           },
-//           complete: () => {
-//             wx.hideLoading()
-//           }
-//         })
-
-//       },
-//       fail: e => {
-//         console.error(e)
-//       }
-//     })
-//   },
-
-// })
+})

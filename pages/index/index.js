@@ -11,7 +11,22 @@ Page({
    */
   data: {
     name: '',
-    flowClassify: app.globalData.flowClassify
+    flowClassify: app.globalData.flowClassify,
+    classify: app.globalData.classify,
+    banner: [],
+    subClassifyImgs: [
+      "../../assets/renwen_logo.png",
+      "../../assets/jisuanji_logo.png",
+      "../../assets/xiyi_logo.png",
+      "../../assets/zhongyi_logo.png",
+      "../../assets/gonggong_logo.png",
+      "../../assets/linchuang_logo.png"
+    ],
+    indicatorDots: false,
+    autoplay: false,
+    interval: 1000,
+    duration: 1800,
+    checkedindex: 0
   },
 
   /**
@@ -21,38 +36,41 @@ Page({
     let that = this
     // this.init()
     // console.log(fly.get("/api/getFlowClassify"))
-    fly.get("/api/getFlowClassify").then(res=>{
+    fly.get("/api/getFlowClassify").then(res => {
       let flowClassify = app.globalData.flowClassify
-      that.setData({ flowClassify: res.flowClassify })
+      that.setData({
+        flowClassify: res.flowClassify
+      })
     })
     fly.get("/api/getClassify").then(res => {
       let classify = app.globalData.classify
-      that.setData({ classify: res.classify })
+      that.setData({
+        classify: res.classify
+      })
     })
-
-    // console.log(app.globalData)
-    // console.log(this.data)
+    this.getBanner()
+    this.getClassifyAct()
   },
-  // async init () {
-  //   let that = this
-  //   // try {
+  async getBanner() {
+    let resData = await fly.get('/api/getBanner')
+    let bannerImgs
+    resData = resData.banner
+    bannerImgs = resData.map((item) => {
+      return fly.config.baseURL + '/api' + item
+    })
+    this.setData({
+      'banner': bannerImgs
+    })
+  },
+  async getClassifyAct() {
+    let resData = await fly.get("/api/getClassify")
+    let classifies
+    classifies = resData.classify
 
-  //   // }
-  //   // catch{
-
-  //   // }
-  //   console.log(fly.get("/api/getFlowClassify").PromiseValue)
-  //   console.log(fly.get("/api/getFlowClassify").engine)
-  //   console.log(fly.get("/api/getFlowClassify").engine.response)
-  //   fly.get("/api/getFlowClassify").then(res => {
-  //     console.log(res)
-  //     let flowClassify = app.globalData.flowClassify
-  //     that.setData({ flowClassify: res.flowClassify })
-  //   })
-  //   // console.log(flowClassify)
-  //   // let globalFLowClassify = app.globalData.classify
-  //   // this.setData({ globalFLowClassify: res.data.classify })
-  // },
+    this.setData({
+      'classify': classifies
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

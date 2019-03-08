@@ -1,5 +1,5 @@
 var Fly = require("../lib/wx.js") //wx.js为您下载的源码文件
-var fly = new Fly(); 
+var fly = new Fly();
 const app = getApp()
 
 //配置请求基地址
@@ -13,8 +13,11 @@ fly.config.baseURL = "http://39.108.213.18:8080"
 fly.interceptors.request.use(
   config => {
     if (app.globalData.token) {
-      config.headers.common['Authentication-Token'] = app.globalData.token
+      // config.headers.common['Authentication-Token'] = app.globalData.token      
     }
+
+    config.headers['Authentication-Token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoi5buW5bO76ZSLIiwiaWQiOiI1YzMwOWRiNjEyZjIzYzFhOTg5NjdjZTgiLCJpZE51bWJlciI6IjQ0NTMyMjE5OTUxMjE5MDAxNSIsImlhdCI6MTU1MjAzMDYzNiwiZXhwIjoxNTUyNjM1NDM2fQ.SRcYaWQkDdj5GDKe2LiGGfxgoStntyL_MM9t2hVdURA'
+
     wx.showLoading({
       title: '加载中',
       mask: true

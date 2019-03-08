@@ -1,2 +1,63 @@
-<view class="container">我是个人中心</view>
-<view>{{message}}</view>
+<view class="toubu">
+  <image src="../../assets/logo.png" alt class="zuo"></image>
+  <view class="zhong">
+    <view v-if="!notLogin" class="biaoti">
+      {{name}}
+      <span class="dianhua">({{phoneNumber}})</span>
+    </view>
+    <view class="xiangxi">ID:{{idNumber}}</view>
+  </view>
+  <view class="you">
+    <i class="iconfont icon-qianjin qianjin"></i>
+  </view>
+</view>
+
+<view class="gundong">
+  <view class="tongji">
+    <view class="tongji-xiang">
+      <view class="shuliang">{{curriculum}}</view>
+      <view class="mingcheng">我的课程</view>
+    </view>
+    <view class="tongji-xiang">
+      <view class="shuliang">{{learnedTime}}</view>
+      <view class="mingcheng">我的学时</view>
+    </view>
+    <view class="tongji-xiang">
+      <view class="shuliang">{{medicalBeans}}</view>
+      <view class="mingcheng">我的医豆</view>
+    </view>
+  </view>
+
+  <!-- <view class="qiandao">
+    <view class="hezi">
+      <view class="tishi">
+        <view class="meiri">每日签到</view>
+        <view class="gengduo">连签一周获更多积分</view>
+      </view>
+      <view class="qiandaoyuan">签到</view>
+    </view>
+  </view> -->
+
+  <view class="neirong">
+    <view class="neirong-xiang">
+      领取
+    </view>
+    <view class="neirong-xiang">
+      我的消息
+    </view>
+    <view class="neirong-xiang">
+      我的地址
+    </view>
+  </view>
+  <view class="neirong">
+    <view class="neirong-xiang">
+      关于我们
+    </view>
+    <view class="neirong-xiang">
+      系统设置
+    </view>
+    <view class="neirong-xiang">
+      退出登陆
+    </view>
+  </view>
+</view>

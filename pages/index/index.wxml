@@ -1,27 +1,31 @@
 <!--index.wxml-->
 <view wx:if="{{isHide}}">
-    <view wx:if="{{canIUse}}" >
-        <view class='header'>
-            <image src='/images/wx_login.png'></image>
-        </view>
- 
-        <!-- <view class='content'>
+  <view wx:if="{{canIUse}}">
+    <view class='header'>
+      <image src='/images/wx_login.png'></image>
+    </view>
+
+    <!-- <view class='content'>
             <view>申请获取以下权限</view>
             <text>获得你的公开信息(昵称，头像等)</text>
         </view> -->
- 
-        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
-            授权登录
-        </button>
-    </view>
-    <view wx:else>请升级微信版本</view>
+
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      授权登录
+    </button>
+  </view>
+  <view wx:else>请升级微信版本</view>
 </view>
 
 <view wx:else>
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class=''>
-    <swiper-item>1</swiper-item>
+  <swiper indicator-dots="false" autoplay="true" interval="3000" duration="500" class=''>
+    <!-- <swiper-item>1</swiper-item>
     <swiper-item>2</swiper-item>
-    <swiper-item>3</swiper-item>
+    <swiper-item>3</swiper-item> -->
+    <swiper-item wx:for="{{banner}}" wx:key="this">
+      <!-- {{item}} -->
+      <image src="{{item}}"></image>
+    </swiper-item>
   </swiper>
 
   <view class="gongneng">
@@ -38,6 +42,28 @@
       <view>调查问卷</view>
     </span>
   </view>
-  <view wx:for="{{flowClassify}}" wx:key="key">{{item.name}}</view>
 </view>
 
+<view class="kemufenlei">
+  <view class="biaoti">科目分类</view>
+
+  <view class="fenlei">
+    <view class="fenlei-xiang" wx:for="{{classify}}" wx:key="this" wx:for-index="index" wx:if="{{index < 3}}">
+      <image src='{{subClassifyImgs[index]}}'></image>
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+  <view class="fenlei">
+    <view class="fenlei-xiang" wx:for="{{classify}}" wx:key="this" wx:for-index="index" wx:if="{{index >=3&&index<=6}}">
+      <image src='{{subClassifyImgs[index]}}'></image>
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="xinxiliu">
+  <view class="toubu">
+    <view wx:for="{{flowClassify}}" wx:key="this">{{item.name}}</view>
+    <span :class="{active: }" wx:for="{{flowClassify}}" wx:key="this" class="{{index==checkedindex? 'kemu_zhonglei active': 'kemu_zhonglei'}}">{{item.name}}</span>
+  </view>
+</view>
