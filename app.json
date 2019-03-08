@@ -2,7 +2,6 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/mine/mine"
   ],
   "window": {
