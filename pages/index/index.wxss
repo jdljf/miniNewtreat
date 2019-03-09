@@ -1,11 +1,14 @@
+.bannerImgs {
+  width: 100%;
+}
 .gongneng {
-  padding: 30rpx 20rpx 40rpx;
+  padding: 30rpx 20rpx 20rpx;
   display: flex;
 }
 .gongneng .gongneng-xiang {
   flex: 1;
   margin: 20rpx;
-  font-size: 22rpx;
+  font-size: 25rpx;
   text-align: center;
 }
 .gongneng .gongneng-xiang image {
@@ -13,4 +16,63 @@
   margin: 0 auto 15rpx auto;
   width: 75rpx;
   height: 75rpx;
+}
+.kemufenlei {
+  border-bottom: 4px solid #f1f1f1;
+}
+.kemufenlei .biaoti {
+  margin: 0 0 0 20rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  padding-left: 8rpx;
+  border-left: 3px solid #7ea090;
+}
+.kemufenlei .fenlei {
+  display: flex;
+}
+.kemufenlei .fenlei .fenlei-xiang {
+  flex: 1;
+  margin: 30rpx 30rpx 20rpx 30rpx;
+  font-size: 25rpx;
+  text-align: center;
+}
+.kemufenlei .fenlei .fenlei-xiang .classifyImgs {
+  display: block;
+  margin: 0 auto 0rpx auto;
+  width: 90rpx;
+  height: 90rpx;
+}
+.xinxiliu {
+  margin-bottom: 15rpx;
+}
+.xinxiliu .toubu {
+  height: 75rpx;
+  line-height: 75rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  overflow: auto;
+  white-space: nowrap;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+}
+.xinxiliu .toubu .icon {
+  margin-right: 10rpx;
+}
+.xinxiliu .toubu .kemu_zhonglei {
+  margin-right: 40rpx;
+  display: flex;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 27rpx;
+  flex: 1;
+  justify-content: center;
+}
+.xinxiliu .toubu .kemu_zhonglei:last-child {
+  margin: 0;
+}
+.xinxiliu .toubu .active {
+  border-bottom: 4px solid #19e889;
 }

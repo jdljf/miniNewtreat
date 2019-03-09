@@ -1,5 +1,122 @@
-/**index.wxss**/
-
 page {
   background-color: #f1f1f1;
+}
+.toubu {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 20rpx 40rpx 20rpx;
+  border-bottom: 3px solid #f1f1f1;
+  background: #fff;
+}
+.toubu .zuo {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+}
+.toubu .zhong {
+  position: relative;
+  margin: 0 0rpx 0 20rpx;
+  flex: 1;
+  overflow: hidden;
+}
+.toubu .zhong .biaoti {
+  height: 45rpx;
+  font-size: 31rpx;
+}
+.toubu .zhong .biaoti .dianhua {
+  padding: 0 0 0 2rpx;
+}
+.toubu .zhong .xiangxi {
+  font-size: 29rpx;
+  color: #b1b1b1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.toubu .you {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 7rpx;
+  position: relative;
+}
+.toubu .you .qianjin {
+  padding-left: 1rpx;
+  text-align: right;
+}
+.gundong .tongji {
+  display: flex;
+  padding: 0 20rpx;
+  justify-content: center;
+  align-items: center;
+  height: 180rpx;
+  border-bottom: 3px solid #f1f1f1;
+  background: #fff;
+}
+.gundong .tongji .tongji-xiang {
+  flex: 1;
+  text-align: center;
+}
+.gundong .tongji .tongji-xiang .shuliang {
+  font-size: 45rpx;
+  font-weight: 600;
+  height: 65rpx;
+}
+.gundong .tongji .tongji-xiang .mingcheng {
+  font-size: 25rpx;
+  color: #d6d6d6;
+}
+.gundong .qiandao {
+  padding: 40rpx 20rpx;
+  background: #fff;
+  height: 18rpx;
+}
+.gundong .qiandao .hezi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25rpx 4rpx;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: #20e693;
+}
+.gundong .qiandao .hezi .tishi {
+  flex: 1;
+}
+.gundong .qiandao .hezi .tishi .meiri {
+  color: #fff;
+  margin-bottom: 13rpx;
+}
+.gundong .qiandao .hezi .tishi .gengduo {
+  font-size: 25rpx;
+  color: #ccc;
+}
+.gundong .qiandao .hezi .qiandaoyuan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 30rpx;
+  background: #65ff3c;
+}
+.gundong .neirong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx 10rpx 0;
+}
+.gundong .neirong .neirong-xiang {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  height: 200rpx;
+}
+.gundong .neirong .neirong-xiang:nth-child(2) {
+  margin: 0 10rpx;
 }
