@@ -1,0 +1,13 @@
+<view class="liebiao" wx:if="curriculum.length > 0">
+  <view class="liebiao-xiang" wx:for="{{curriculums}}" wx:key="this">
+    <image src="../../assets/kecheng.png" alt class="zuo"></image>
+    <view class="zhong">
+      <view class="kecheng-biaoti">{{videos[index].title}}</view>
+      <view class="shangci" wx:if="curriculum.lastLearn !== undefined">
+        <span>上次学习:</span>
+        <span class="riqi">{{item.lastLearn}}</span>
+        <!-- <span class="">{{item.lastLearn.split('T')[1].split('.')[0]}}</span> -->
+      </view>
+    </view>
+  </view>
+</view>

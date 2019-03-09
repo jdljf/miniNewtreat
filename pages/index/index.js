@@ -33,23 +33,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-    let that = this
-    // this.init()
-    // console.log(fly.get("/api/getFlowClassify"))
-    fly.get("/api/getFlowClassify").then(res => {
-      let flowClassify = app.globalData.flowClassify
-      that.setData({
-        flowClassify: res.flowClassify
-      })
-    })
-    fly.get("/api/getClassify").then(res => {
-      let classify = app.globalData.classify
-      that.setData({
-        classify: res.classify
-      })
-    })
-    this.getBanner()
-    this.getClassifyAct()
+
   },
   async getBanner() {
     let resData = await fly.get('/api/getBanner')
@@ -71,6 +55,16 @@ Page({
       'classify': classifies
     })
   },
+  gotoCurriculum: function(e) {
+    wx.navigateTo({
+      url: "../curriculum/curriculum",
+    })
+  },
+  gotoHeadLine: function(e) {
+    wx.navigateTo({
+      url: '../headline/headline',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -82,7 +76,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    let that = this
+    // this.init()
+    // console.log(fly.get("/api/getFlowClassify"))
+    fly.get("/api/getFlowClassify").then(res => {
+      let flowClassify = app.globalData.flowClassify
+      that.setData({
+        flowClassify: res.flowClassify
+      })
+    })
+    fly.get("/api/getClassify").then(res => {
+      let classify = app.globalData.classify
+      that.setData({
+        classify: res.classify
+      })
+    })
+    this.getBanner()
+    this.getClassifyAct()
   },
 
   /**
