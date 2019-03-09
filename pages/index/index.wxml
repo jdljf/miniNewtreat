@@ -19,12 +19,8 @@
 
 <view wx:else>
   <swiper indicator-dots="false" autoplay="true" interval="3000" duration="500" class=''>
-    <!-- <swiper-item>1</swiper-item>
-    <swiper-item>2</swiper-item>
-    <swiper-item>3</swiper-item> -->
     <swiper-item wx:for="{{banner}}" wx:key="this">
-      <!-- {{item}} -->
-      <image src="{{item}}"></image>
+      <image src="{{item}}" class='bannerImgs'></image>
     </swiper-item>
   </swiper>
 
@@ -49,13 +45,13 @@
 
   <view class="fenlei">
     <view class="fenlei-xiang" wx:for="{{classify}}" wx:key="this" wx:for-index="index" wx:if="{{index < 3}}">
-      <image src='{{subClassifyImgs[index]}}'></image>
+      <image src='{{subClassifyImgs[index]}}' class='classifyImgs'></image>
       <view>{{item.name}}</view>
     </view>
   </view>
   <view class="fenlei">
     <view class="fenlei-xiang" wx:for="{{classify}}" wx:key="this" wx:for-index="index" wx:if="{{index >=3&&index<=6}}">
-      <image src='{{subClassifyImgs[index]}}'></image>
+      <image src='{{subClassifyImgs[index]}}' class='classifyImgs'></image>
       <view>{{item.name}}</view>
     </view>
   </view>
@@ -63,7 +59,7 @@
 
 <view class="xinxiliu">
   <view class="toubu">
-    <view wx:for="{{flowClassify}}" wx:key="this">{{item.name}}</view>
+    <!-- <view wx:for="{{flowClassify}}" wx:key="this">{{item.name}}</view> -->
     <span :class="{active: }" wx:for="{{flowClassify}}" wx:key="this" class="{{index==checkedindex? 'kemu_zhonglei active': 'kemu_zhonglei'}}">{{item.name}}</span>
   </view>
 </view>

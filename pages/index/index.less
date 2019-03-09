@@ -1,42 +1,14 @@
- 
-.header {
-  margin: 90rpx 0 90rpx 50rpx;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  width: 650rpx;
-  height: 300rpx;
-  line-height: 450rpx;
-}
-
-.header image {
-  width: 200rpx;
-  height: 200rpx;
-}
-
-.content {
-  margin-left: 50rpx;
-  margin-bottom: 90rpx;
-}
-
-.content text {
-  display: block;
-  color: #9d9d9d;
-  margin-top: 40rpx;
-}
-
-.bottom {
-  border-radius: 80rpx;
-  margin: 70rpx 50rpx;
-  font-size: 35rpx;
+.bannerImgs{
+    width: 100%;
 }
 
 .gongneng {
-    padding:30rpx 20rpx 40rpx;
+    padding:30rpx 20rpx 20rpx;
     display: flex;
     .gongneng-xiang {
       flex: 1;
       margin: 20rpx;
-      font-size: 22rpx;
+      font-size: 25rpx;
       text-align: center;
       image {
         display: block;
@@ -48,23 +20,27 @@
   }
 
 .kemufenlei {
-  padding: 30rpx 0 0 0;
   border-bottom: 4px solid #f1f1f1;
   .biaoti {
     margin: 0 0 0 20rpx;
+
     font-size: 30rpx;
+
     font-weight: 600;
-    padding-left: 80rpx;
-    border-left: 30px solid #7ea090;
+
+    padding-left: 8rpx;
+
+    border-left: 3px solid #7ea090;
+
   }
   .fenlei {
     display: flex;
     .fenlei-xiang {
       flex: 1;
       margin: 30rpx 30rpx 20rpx 30rpx;
-      font-size: 22rpx;
+      font-size: 25rpx;
       text-align: center;
-      img {
+      .classifyImgs{
         display: block;
         margin: 0 auto 0rpx auto;
         width: 90rpx;
@@ -73,3 +49,58 @@
     }
   }
 }
+
+.xinxiliu {
+    margin-bottom: 15rpx;
+    .toubu {
+      height:75rpx;
+
+      line-height:75rpx;
+
+      padding:0 20rpx;
+
+      background:#fff;
+
+      border-bottom:1px solid #f1f1f1;
+
+      overflow:auto;
+
+      white-space:nowrap;
+
+      font-size:28rpx;
+
+      width:100%;
+
+      box-sizing:
+      border-box;
+
+      display:flex;
+
+
+      .icon {
+        margin-right: 10rpx;
+      }
+      .kemu_zhonglei {
+        margin-right:40rpx;
+
+	display:flex;
+
+	box-sizing:border-box;
+
+	height:100%;
+	
+font-size:27rpx;
+
+	flex:1;
+
+	justify-content:center;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+      .active {
+        border-bottom: 4px solid #19e889;
+      }
+    }    
+  }

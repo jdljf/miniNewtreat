@@ -27,17 +27,6 @@
       <view class="mingcheng">我的医豆</view>
     </view>
   </view>
-
-  <!-- <view class="qiandao">
-    <view class="hezi">
-      <view class="tishi">
-        <view class="meiri">每日签到</view>
-        <view class="gengduo">连签一周获更多积分</view>
-      </view>
-      <view class="qiandaoyuan">签到</view>
-    </view>
-  </view> -->
-
   <view class="neirong">
     <view class="neirong-xiang">
       领取
