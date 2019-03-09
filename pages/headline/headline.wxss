@@ -1,0 +1,35 @@
+.liebiao {
+  padding: 0 0 15rpx 20rpx;
+  background: #fff;
+}
+.liebiao .liebiao-xiang {
+  display: flex;
+  padding: 23rpx 30rpx 23rpx 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+.liebiao .liebiao-xiang .zuo {
+  width: 180rpx;
+  height: 140rpx;
+}
+.liebiao .liebiao-xiang .zhong {
+  position: relative;
+  margin-left: 20rpx;
+  flex: 1;
+  overflow: hidden;
+}
+.liebiao .liebiao-xiang .zhong .kecheng-biaoti {
+  font-size: 30rpx;
+  height: 74rpx;
+  line-height: 37rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.liebiao .liebiao-xiang .zhong .shangci {
+  position: absolute;
+  bottom: 0;
+  font-size: 28rpx;
+  color: #ccc;
+}
+.liebiao .liebiao-xiang .zhong .shangci .riqi {
+  margin: 0 10rpx;
+}

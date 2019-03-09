@@ -1,0 +1,12 @@
+<view class="liebiao">
+  <view class="liebiao-xiang" wx:for="{{headline}}">
+    <image class='zuo' src="{{item.img}}" lazy-load="true"></image>
+    <view class="zhong">
+      <view class="kecheng-biaoti">{{item.title}}</view>
+      <view class="shangci">
+        时长:
+        <span class="riqi">12分钟</span>
+      </view>
+    </view>
+  </view>
+</view>

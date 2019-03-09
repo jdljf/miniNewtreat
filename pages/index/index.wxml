@@ -25,15 +25,15 @@
   </swiper>
 
   <view class="gongneng">
-    <span class="gongneng-xiang">
+    <span class="gongneng-xiang" bindtap="gotoCurriculum">
       <image src="../../assets/kecheng_logo.png" class="gongneng-xiang"></image>
       <view>课程</view>
     </span>
-    <span class="gongneng-xiang">
+    <span class="gongneng-xiang" bindtap="gotoHeadLine">
       <image src="../../assets/toutiao_logo.png" class="gongneng-xiang"></image>
       <view>头条视讯</view>
     </span>
-    <span class="gongneng-xiang">
+    <span class="gongneng-xiang" bindtap="">
       <image src="../../assets/wenjuan_logo.png" class="gongneng-xiang"></image>
       <view>调查问卷</view>
     </span>
